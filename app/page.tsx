@@ -1,4 +1,4 @@
-import AgentWorkflow from "@/components/AgentWorkflow";
+import FlowCompare from "@/components/FlowCompare";
 import AgentTerminal from "@/components/AgentTerminal";
 import Reveal from "@/components/Reveal";
 import Clock from "@/components/Clock";
@@ -65,7 +65,7 @@ export default function Home() {
         </div>
 
         <div className="hero-right">
-          <AgentWorkflow />
+          <FlowCompare />
           <span className="hero-badge">Hunter Zhang</span>
         </div>
       </section>

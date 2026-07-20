@@ -477,6 +477,123 @@ html.lenis, html.lenis body { height: auto; }
   .flow-node { padding: 10px 15px; }
 }
 
+/* ---------- Hero flow comparison ---------- */
+.cmp {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: clamp(16px, 2.2vw, 30px);
+  padding: clamp(22px, 4.5vh, 52px) clamp(20px, 3vw, 44px);
+  font-family: var(--font-mono);
+  align-content: center;
+}
+.cmp-col { display: flex; flex-direction: column; }
+.cmp-col.agentic {
+  border-left: 1px solid var(--line);
+  padding-left: clamp(16px, 2.2vw, 30px);
+}
+.cmp-head { display: flex; flex-direction: column; gap: 5px; margin-bottom: 20px; }
+.cmp-label {
+  font-size: 10px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--ink-faint);
+}
+.cmp-label.accent { color: var(--accent); }
+.cmp-time {
+  font-family: var(--font-sans);
+  font-size: clamp(17px, 1.9vw, 25px);
+  letter-spacing: -0.02em;
+  line-height: 1;
+}
+.cmp-time.cost { color: #cf8f7c; }
+.cmp-time.good { color: var(--available); }
+
+.cmp-steps { list-style: none; position: relative; padding-left: 20px; }
+.cmp-steps::before {
+  content: "";
+  position: absolute;
+  left: 4px;
+  top: 8px;
+  bottom: 8px;
+  width: 1px;
+}
+.manual .cmp-steps::before {
+  background: repeating-linear-gradient(var(--ink-faint) 0 3px, transparent 3px 8px);
+  opacity: 0.65;
+}
+.agentic .cmp-steps::before { background: rgba(224, 136, 90, 0.45); }
+
+.cmp-step {
+  position: relative;
+  font-size: 12.5px;
+  color: var(--ink-soft);
+  padding: 7px 0;
+  line-height: 1.25;
+}
+.cmp-step::before {
+  content: "";
+  position: absolute;
+  left: -19px;
+  top: 12px;
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--ink-faint);
+}
+.agentic .cmp-step {
+  font-size: 14px;
+  color: var(--ink);
+  padding: 13px 0;
+}
+.agentic .cmp-step::before { background: var(--accent); }
+.agentic .cmp-step.agent { color: var(--accent); }
+.agentic .cmp-step.agent::before { animation: agentPulse 1.8s var(--ease) infinite; }
+.agentic .cmp-step.done { color: var(--available); }
+.agentic .cmp-step.done::before { background: var(--available); }
+
+.cmp-marker {
+  position: absolute;
+  left: 1px;
+  top: 0;
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--ink-soft);
+  box-shadow: 0 0 5px rgba(207, 200, 195, 0.35);
+  animation: cmpDown 11s steps(7, end) infinite;
+}
+.cmp-marker.fast {
+  background: var(--accent);
+  box-shadow: 0 0 8px rgba(224, 136, 90, 0.75);
+  animation: cmpDownFast 2.1s var(--ease) infinite;
+}
+@keyframes cmpDown {
+  0% { top: 2%; }
+  100% { top: 98%; }
+}
+@keyframes cmpDownFast {
+  0% { top: 0%; opacity: 0; }
+  15% { opacity: 1; }
+  85% { opacity: 1; }
+  100% { top: 100%; opacity: 0; }
+}
+
+.cmp-foot {
+  margin-top: 16px;
+  font-size: 11px;
+  color: var(--ink-faint);
+}
+.cmp-foot.accent { color: var(--accent); }
+
+@media (max-width: 560px) {
+  .cmp { padding: 20px 16px; gap: 14px; }
+  .cmp-step { font-size: 11.5px; padding: 6px 0; }
+  .agentic .cmp-step { font-size: 12.5px; padding: 10px 0; }
+}
+
 /* ---------- Agent terminal card ---------- */
 .term {
   margin-top: 16px;
@@ -558,5 +675,6 @@ html.lenis, html.lenis body { height: auto; }
 
 @media (prefers-reduced-motion: reduce) {
   .reveal { opacity: 1; transform: none; transition: none; }
-  .dot, .tok, .agent-ring, .tool, .tl-spin, .term-cursor { animation: none; }
+  .dot, .tok, .agent-ring, .tool, .tl-spin, .term-cursor,
+  .cmp-marker, .agentic .cmp-step.agent::before { animation: none; }
 }
