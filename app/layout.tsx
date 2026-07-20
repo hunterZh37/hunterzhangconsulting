@@ -16,7 +16,7 @@ const mono = JetBrains_Mono({
   display: "swap",
 });
 
-const SITE_URL = "https://bookwithhunter.com";
+const SITE_URL = "https://hunterzhangconsulting.com";
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
