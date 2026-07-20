@@ -141,7 +141,7 @@ export default function Home() {
               <Reveal className="eyebrow" as="div">
                 <span className="num">02</span>
                 <span className="dash">—</span>
-                <span>Results</span>
+                <span>Featured build</span>
               </Reveal>
               <div>
                 <Reveal>
@@ -150,13 +150,105 @@ export default function Home() {
                   </h2>
                 </Reveal>
 
+                <Reveal className="showcase" as="div">
+                  <div className="showcase-head">
+                    <p className="showcase-kicker">Agentic Scheduling</p>
+                    <h3 className="showcase-title">
+                      A calendar you run by text or voice — driven by an AI
+                      agent.
+                    </h3>
+                    <p className="showcase-desc">
+                      A self-hostable scheduling platform: a Claude agent
+                      aggregates free/busy across your Google and Microsoft
+                      calendars, hands strangers a Calendly-style booking page,
+                      and takes its orders from the web, WhatsApp/SMS, or a voice
+                      note — right down to two agents negotiating a meeting time
+                      and booking it live.
+                    </p>
+                  </div>
+
+                  <div className="showcase-media">
+                    <video
+                      className="showcase-video"
+                      autoPlay
+                      loop
+                      muted
+                      playsInline
+                      preload="metadata"
+                      aria-label="Demo of Agentic Scheduling: picking a booking slot, then two AI agents negotiating and confirming a meeting time"
+                    >
+                      <source
+                        src="/showcase/agentic-scheduling-demo.mp4"
+                        type="video/mp4"
+                      />
+                    </video>
+                  </div>
+                  <p className="showcase-caption">
+                    A visitor picks a slot on the public booking page, then two
+                    Claude agents negotiate a time on real availability — ending
+                    in a booked event.
+                  </p>
+
+                  <ul className="feature-list">
+                    <li>
+                      <b>Run your calendar from a text or voice note.</b> An
+                      agent with full calendar control creates, moves, and
+                      cancels events — and replies to confirm what it heard.
+                    </li>
+                    <li>
+                      <b>Agents that negotiate, then book.</b> A visitor&apos;s
+                      agent and yours haggle over real availability and land on a
+                      confirmed time.
+                    </li>
+                    <li>
+                      <b>Real multi-provider aggregation.</b> Merges free/busy
+                      across multiple Google accounts and Microsoft Graph, all in
+                      UTC internally.
+                    </li>
+                    <li>
+                      <b>Security by architecture, not by prompt.</b> Public
+                      agents are physically handed only scope-fenced tools — the
+                      privileged ones are never constructed for them.
+                    </li>
+                    <li>
+                      <b>Production-grade personal ops.</b> A DST-safe daily
+                      WhatsApp brief, a reminder worker, self-serve
+                      reschedule/cancel links, and a Chrome extension that
+                      overlays your availability on other people&apos;s Calendly
+                      pages.
+                    </li>
+                  </ul>
+
+                  <div className="chips" aria-label="Tech stack">
+                    <span>Next.js</span>
+                    <span>TypeScript</span>
+                    <span>Claude tool-calling</span>
+                    <span>Whisper</span>
+                    <span>Postgres · Prisma</span>
+                    <span>Twilio</span>
+                    <span>Vercel</span>
+                  </div>
+
+                  <div className="showcase-actions">
+                    <a
+                      className="btn btn-ghost"
+                      href={site.agenticSchedulingRepo}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      View on GitHub <ArrowUpRight />
+                    </a>
+                    <span className="showcase-meta">MIT-licensed · open source</span>
+                  </div>
+                </Reveal>
+
                 <Reveal className="case" as="div">
                   <div className="case-meta">
                     <span>
                       Client — <b>Independent consultant</b>
                     </span>
                     <span>
-                      Build — <b>Calendar &amp; scheduling agent</b>
+                      Build — <b>Agentic Scheduling</b>
                     </span>
                     <span>
                       Outcome — <b>1+ hr/day recovered</b>
@@ -176,9 +268,9 @@ export default function Home() {
                       <p className="tag">After</p>
                       <p className="stat">Handled entirely</p>
                       <p>
-                        A tailored AI agent now runs scheduling end-to-end. The
-                        hour comes back every single day — and the client can
-                        adjust and maintain the system themselves.
+                        The agent now runs scheduling end-to-end. The hour comes
+                        back every single day — and the client can adjust and
+                        maintain the system themselves.
                       </p>
                     </div>
                   </div>
