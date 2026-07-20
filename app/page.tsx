@@ -1,4 +1,5 @@
-import AgentField from "@/components/AgentField";
+import AgentWorkflow from "@/components/AgentWorkflow";
+import AgentTerminal from "@/components/AgentTerminal";
 import Reveal from "@/components/Reveal";
 import Clock from "@/components/Clock";
 import { site } from "@/lib/site";
@@ -64,7 +65,7 @@ export default function Home() {
         </div>
 
         <div className="hero-right">
-          <AgentField />
+          <AgentWorkflow />
           <span className="hero-badge">Hunter Zhang</span>
         </div>
       </section>
@@ -72,7 +73,7 @@ export default function Home() {
       {/* ---------- Bento grid ---------- */}
       <div className="bento">
         {/* What I do */}
-        <Reveal className="card span-4" as="div">
+        <Reveal className="card span-3" as="div">
           <span className="eyebrow">What I do</span>
           <h2 className="card-title big">
             AI that fits your workflow. Not the other way around.
@@ -82,6 +83,12 @@ export default function Home() {
           </p>
         </Reveal>
 
+        {/* Agent at work (terminal) */}
+        <Reveal className="card span-3 term-card" as="div">
+          <span className="eyebrow">An agent at work</span>
+          <AgentTerminal />
+        </Reveal>
+
         {/* Clock */}
         <Reveal className="card span-2 clock-card beige" as="div">
           <span className="eyebrow">Now</span>
@@ -89,7 +96,7 @@ export default function Home() {
         </Reveal>
 
         {/* Professionals */}
-        <Reveal className="card span-3" as="div">
+        <Reveal className="card span-2" as="div">
           <span className="card-kicker">Professionals</span>
           <h3 className="card-title">Use AI better than anyone in your field.</h3>
           <p className="card-body">
@@ -98,7 +105,7 @@ export default function Home() {
         </Reveal>
 
         {/* Enterprises */}
-        <Reveal className="card span-3 beige" as="div">
+        <Reveal className="card span-2 beige" as="div">
           <span className="card-kicker">Enterprises</span>
           <h3 className="card-title">Ship AI to production in weeks.</h3>
           <p className="card-body">
