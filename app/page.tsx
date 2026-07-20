@@ -83,7 +83,7 @@ export default function Home() {
         </Reveal>
 
         {/* Clock */}
-        <Reveal className="card span-2 clock-card" as="div">
+        <Reveal className="card span-2 clock-card beige" as="div">
           <span className="eyebrow">Now</span>
           <Clock />
         </Reveal>
@@ -98,7 +98,7 @@ export default function Home() {
         </Reveal>
 
         {/* Enterprises */}
-        <Reveal className="card span-3" as="div">
+        <Reveal className="card span-3 beige" as="div">
           <span className="card-kicker">Enterprises</span>
           <h3 className="card-title">Ship AI to production in weeks.</h3>
           <p className="card-body">
@@ -167,7 +167,7 @@ export default function Home() {
         </Reveal>
 
         {/* Contact */}
-        <Reveal className="card span-3 contact-card" as="div">
+        <Reveal className="card span-3 contact-card beige" as="div">
           <div>
             <span className="eyebrow">Contact</span>
             <h3 className="card-title big" style={{ marginTop: 14 }}>

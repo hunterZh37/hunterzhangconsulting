@@ -209,6 +209,20 @@ html.lenis, html.lenis body { height: auto; }
 .card:hover { border-color: var(--line-strong); }
 .card-head { font-size: 11px; }
 
+/* Beige (inverted) blocks — warm greige panel with dark text, like the
+   Kōsuke template's light sections. Redefines the palette vars locally so
+   every child (titles, muted text, borders, kickers, links) flips cleanly. */
+.card.beige {
+  --ink: #1d1b19;
+  --ink-soft: #5f584f;
+  --ink-faint: #857c72;
+  --line: rgba(29, 27, 25, 0.14);
+  --line-strong: rgba(29, 27, 25, 0.26);
+  --accent: #b5623a;
+  background: #cfc8c3;
+  color: #1d1b19;
+}
+
 .span-2 { grid-column: span 2; }
 .span-3 { grid-column: span 3; }
 .span-4 { grid-column: span 4; }
