@@ -16,7 +16,7 @@ const grotesk = Geist({
 const mono = Geist_Mono({
   subsets: ["latin"],
   weight: ["400", "500"],
-  variable: "--font-mono",
+  variable: "--font-geist-mono",
   display: "swap",
 });
 
