@@ -1,15 +1,19 @@
 import type { Metadata } from "next";
-import { Space_Grotesk, JetBrains_Mono } from "next/font/google";
+import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 
-const grotesk = Space_Grotesk({
+// Headline face — Geist, the sans sibling designed to pair with Geist Mono.
+// (Reference site's headline is the licensed "GT Pressura Extended", which
+// can't be legally bundled without a license.)
+const grotesk = Geist({
   subsets: ["latin"],
   weight: ["400", "500", "600"],
   variable: "--font-grotesk",
   display: "swap",
 });
 
-const mono = JetBrains_Mono({
+// Body & micro-labels — Geist Mono, the exact monospace used on the reference site.
+const mono = Geist_Mono({
   subsets: ["latin"],
   weight: ["400", "500"],
   variable: "--font-mono",
