@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
+import SmoothScroll from "@/components/SmoothScroll";
 import "./globals.css";
 
 // Headline face — Geist, the sans sibling designed to pair with Geist Mono.
@@ -24,9 +25,9 @@ const SITE_URL = "https://hunterzhangconsulting.com";
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
-  title: "Hunter Zhang — Agentic Automation for Professionals & Enterprises",
+  title: "Hunter Zhang · Agentic AI Automation",
   description:
-    "I help senior professionals and lean enterprises build agentic AI automation they can own and maintain — becoming the most leveraged person in the room instead of the one being replaced.",
+    "Agentic AI automation for professionals and lean teams. You own what I build.",
   keywords: [
     "AI automation",
     "agentic automation",
@@ -36,18 +37,18 @@ export const metadata: Metadata = {
     "Hunter Zhang",
   ],
   openGraph: {
-    title: "Hunter Zhang — Agentic Automation",
+    title: "Hunter Zhang · Agentic AI Automation",
     description:
-      "Agentic AI automation for high-profile professionals and lean enterprises. Systems you own and maintain, shipped to production in weeks.",
+      "Agentic AI automation for professionals and lean teams. You own what I build.",
     url: SITE_URL,
     siteName: "Hunter Zhang",
     type: "website",
   },
   twitter: {
     card: "summary_large_image",
-    title: "Hunter Zhang — Agentic Automation",
+    title: "Hunter Zhang · Agentic AI Automation",
     description:
-      "Agentic AI automation for high-profile professionals and lean enterprises.",
+      "Agentic AI automation for professionals and lean teams. You own what I build.",
   },
 };
 
@@ -57,8 +58,13 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" className={`${grotesk.variable} ${mono.variable}`}>
-      <body>{children}</body>
+    <html
+      lang="en"
+      className={`${grotesk.variable} ${mono.variable}`}
+    >
+      <body>
+        <SmoothScroll>{children}</SmoothScroll>
+      </body>
     </html>
   );
 }

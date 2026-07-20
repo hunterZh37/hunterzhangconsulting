@@ -20,8 +20,8 @@ export default function AgentField() {
       typeof window !== "undefined" &&
       window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
-    const INK = "26, 25, 23"; // --ink rgb
-    const ACCENT = "181, 98, 58"; // --accent rgb
+    const INK = "236, 234, 228"; // light nodes/lines on the dark hero panel
+    const ACCENT = "224, 136, 90"; // warm copper accent
 
     let width = 0;
     let height = 0;
