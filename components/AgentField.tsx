@@ -20,7 +20,7 @@ export default function AgentField() {
       typeof window !== "undefined" &&
       window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
-    const INK = "236, 234, 228"; // light nodes/lines on the dark hero panel
+    const INK = "207, 200, 195"; // warm greige nodes/lines on the dark hero panel
     const ACCENT = "224, 136, 90"; // warm copper accent
 
     let width = 0;
