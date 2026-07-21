@@ -594,6 +594,101 @@ html.lenis, html.lenis body { height: auto; }
   .agentic .cmp-step { font-size: 12.5px; padding: 10px 0; }
 }
 
+/* ---------- Hero before/after comparison ---------- */
+.vs {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: clamp(10px, 1.6vh, 18px);
+  padding: clamp(20px, 4vh, 44px) clamp(20px, 3vw, 42px);
+}
+.vs-block {
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  padding: clamp(16px, 2.4vh, 24px) clamp(18px, 2.4vw, 28px);
+}
+.vs-block.before {
+  background: rgba(207, 125, 105, 0.06);
+  border-color: rgba(207, 125, 105, 0.20);
+}
+.vs-block.after {
+  background: rgba(107, 208, 138, 0.06);
+  border-color: rgba(107, 208, 138, 0.22);
+}
+.vs-h {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 12px;
+}
+.vs-tag {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--ink-faint);
+}
+.vs-tag.accent { color: var(--accent); }
+.vs-stat {
+  font-family: var(--font-sans);
+  font-size: clamp(28px, 3.8vw, 50px);
+  letter-spacing: -0.03em;
+  line-height: 1;
+  display: inline-flex;
+  align-items: baseline;
+  gap: 7px;
+}
+.vs-stat em {
+  font-style: normal;
+  font-family: var(--font-mono);
+  font-size: 0.28em;
+  letter-spacing: 0.08em;
+  color: var(--ink-faint);
+  text-transform: uppercase;
+}
+.vs-stat.cost { color: #d3826d; }
+.vs-stat.good { color: var(--available); }
+
+.vs-svg {
+  width: 100%;
+  height: auto;
+  display: block;
+  margin: clamp(10px, 1.6vh, 16px) 0 10px;
+}
+.vs-node-label {
+  font-family: var(--font-mono);
+  font-size: 8px;
+  letter-spacing: 0.08em;
+  fill: var(--ink-faint);
+  text-transform: uppercase;
+}
+.vs-cap {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  color: var(--ink-soft);
+}
+
+.vs-sep {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-family: var(--font-mono);
+  font-size: 10px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--ink-faint);
+}
+.vs-sep::before,
+.vs-sep::after {
+  content: "";
+  flex: 1;
+  height: 1px;
+  background: var(--line);
+}
+
 /* ---------- Agent terminal card ---------- */
 .term {
   margin-top: 16px;
