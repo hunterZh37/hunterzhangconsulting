@@ -2,7 +2,6 @@ import Image from "next/image";
 import FlowCompare from "@/components/FlowCompare";
 import AgentTerminal from "@/components/AgentTerminal";
 import Reveal from "@/components/Reveal";
-import Clock from "@/components/Clock";
 import { site } from "@/lib/site";
 
 function ArrowUpRight() {
@@ -26,18 +25,48 @@ function ArrowUpRight() {
   );
 }
 
+function Section({
+  n,
+  label,
+  id,
+  children,
+}: {
+  n: string;
+  label: string;
+  id?: string;
+  children: React.ReactNode;
+}) {
+  return (
+    <section className="sec" id={id}>
+      <div className="shell grid-label">
+        <Reveal className="eyebrow" as="div">
+          <span className="num">{n}</span>
+          <span>{label}</span>
+        </Reveal>
+        <div className="sec-body">{children}</div>
+      </div>
+    </section>
+  );
+}
+
+function Rule() {
+  return (
+    <div className="shell">
+      <hr className="rule" />
+    </div>
+  );
+}
+
 export default function Home() {
   return (
     <>
       {/* ---------- Hero ---------- */}
       <section className="hero">
         <div className="hero-left">
-          <div className="hero-top">
-            <span className="pill">
-              <span className="dot" />
-              Available for projects
-            </span>
-          </div>
+          <span className="pill">
+            <span className="dot" />
+            Available for projects
+          </span>
 
           <div>
             <h1 className="display hero-h1">
@@ -78,66 +107,78 @@ export default function Home() {
         </div>
       </section>
 
-      {/* ---------- Bento grid ---------- */}
-      <div className="bento">
-        {/* Manual vs automated */}
-        <Reveal className="card span-6 compare-card" as="div">
-          <span className="eyebrow">Manual today vs an agent</span>
-          <FlowCompare />
-        </Reveal>
+      <main>
+        {/* 01 — the contrast */}
+        <Section n="01" label="Manual today vs an agent" id="why">
+          <Reveal>
+            <FlowCompare />
+          </Reveal>
+        </Section>
 
-        {/* What I do */}
-        <Reveal className="card span-3" as="div">
-          <span className="eyebrow">What I do</span>
-          <h2 className="card-title big">
-            AI that fits your workflow. Not the other way around.
-          </h2>
-          <p className="card-body">
-            Lean systems built around how you actually work.
-          </p>
-        </Reveal>
+        <Rule />
 
-        {/* Agent at work (terminal) */}
-        <Reveal className="card span-3 term-card" as="div">
-          <span className="eyebrow">An agent at work</span>
-          <AgentTerminal />
-        </Reveal>
+        {/* 02 — what I do + who I serve */}
+        <Section n="02" label="What I do">
+          <Reveal>
+            <h2 className="display h-lg">
+              AI that fits your workflow. Not the other way around.
+            </h2>
+            <p className="lede">
+              Lean systems built around how you actually work.
+            </p>
+          </Reveal>
 
-        {/* Clock */}
-        <Reveal className="card span-2 clock-card beige" as="div">
-          <span className="eyebrow">Now</span>
-          <Clock />
-        </Reveal>
-
-        {/* Professionals */}
-        <Reveal className="card span-2" as="div">
-          <span className="card-kicker">Professionals</span>
-          <h3 className="card-title">Use AI better than anyone in your field.</h3>
-          <p className="card-body">
-            Own automations built for you. Lead instead of getting replaced.
-          </p>
-        </Reveal>
-
-        {/* Enterprises */}
-        <Reveal className="card span-2 beige" as="div">
-          <span className="card-kicker">Enterprises</span>
-          <h3 className="card-title">Ship AI to production in weeks.</h3>
-          <p className="card-body">
-            Cut cost. Hit deadlines. Stay lean. Real ROI, fast.
-          </p>
-        </Reveal>
-
-        {/* Featured build */}
-        <Reveal className="card span-6" as="div">
-          <span className="card-kicker">Featured build</span>
-          <div className="build-grid">
-            <div>
-              <h3 className="card-title big">Agentic Scheduling</h3>
-              <p className="card-body">
-                A calendar you run by text or voice. Agents book meetings for
-                you.
+          <div className="two-col">
+            <Reveal as="div">
+              <span className="kicker">Professionals</span>
+              <h3 className="h-sm">Use AI better than anyone in your field.</h3>
+              <p className="body">
+                Own automations built for you. Lead instead of getting replaced.
               </p>
-              <div className="chips" aria-label="Tech stack">
+            </Reveal>
+            <Reveal as="div" delay={80}>
+              <span className="kicker">Enterprises</span>
+              <h3 className="h-sm">Ship AI to production in weeks.</h3>
+              <p className="body">
+                Cut cost. Hit deadlines. Stay lean. Real ROI, fast.
+              </p>
+            </Reveal>
+          </div>
+        </Section>
+
+        <Rule />
+
+        {/* 03 — proof: an agent at work */}
+        <Section n="03" label="An agent at work">
+          <Reveal>
+            <h2 className="display h-lg">Not a demo. It runs the task.</h2>
+            <p className="lede">
+              Take a request on any channel, reason over your real data, call
+              the tools, and finish the job.
+            </p>
+          </Reveal>
+          <Reveal className="term-wrap" as="div" delay={80}>
+            <AgentTerminal />
+          </Reveal>
+        </Section>
+
+        <Rule />
+
+        {/* 04 — featured build */}
+        <Section n="04" label="Featured build">
+          <div className="build">
+            <Reveal as="div">
+              <span className="kicker">Agentic Scheduling</span>
+              <h2 className="display h-lg">
+                A calendar you run by text or voice.
+              </h2>
+              <p className="body">
+                A Claude agent aggregates your Google and Microsoft calendars,
+                hands strangers a booking page, and takes its orders from the
+                web, WhatsApp, or a voice note. Two agents can even negotiate a
+                meeting and book it.
+              </p>
+              <div className="chips">
                 <span>Next.js</span>
                 <span>TypeScript</span>
                 <span>Claude</span>
@@ -157,10 +198,9 @@ export default function Home() {
                   <b>1+ hr/day</b> back for a client
                 </span>
               </div>
-            </div>
-            <div className="showcase-media">
+            </Reveal>
+            <Reveal className="build-media" as="div" delay={80}>
               <video
-                className="showcase-video"
                 autoPlay
                 loop
                 muted
@@ -173,53 +213,64 @@ export default function Home() {
                   type="video/mp4"
                 />
               </video>
-            </div>
+            </Reveal>
           </div>
-        </Reveal>
+        </Section>
 
-        {/* Why me */}
-        <Reveal className="card span-3" as="div">
-          <span className="eyebrow">Why me</span>
-          <ul className="mini-list">
-            <li>Founder. Half technical, half business.</li>
+        <Rule />
+
+        {/* 05 — why me */}
+        <Section n="05" label="Why me">
+          <Reveal>
+            <h2 className="display h-lg">
+              Half technical, half business. Fluent in both.
+            </h2>
+          </Reveal>
+          <Reveal className="mini-list" as="ul" delay={60}>
+            <li>Founder who translates between engineers and operators.</li>
             <li>You own the system. No lock in.</li>
             <li>Stanford. Production in weeks.</li>
-          </ul>
-        </Reveal>
+          </Reveal>
+        </Section>
 
-        {/* Contact */}
-        <Reveal className="card span-3 contact-card beige" as="div">
-          <div>
-            <span className="eyebrow">Contact</span>
-            <h3 className="card-title big" style={{ marginTop: 14 }}>
-              Let&apos;s talk.
-            </h3>
-          </div>
-          <div className="contact-links">
-            <a
-              href={site.bookingUrl}
-              target="_blank"
-              rel="noopener noreferrer"
-            >
+        <Rule />
+
+        {/* 06 — contact */}
+        <Section n="06" label="Contact" id="contact">
+          <Reveal>
+            <h2 className="display h-lg">Let&apos;s talk.</h2>
+            <p className="lede">
+              Tell me what you want to automate and your timeline. No polished
+              brief needed.
+            </p>
+          </Reveal>
+          <Reveal className="links" as="div" delay={80}>
+            <a href={site.bookingUrl} target="_blank" rel="noopener noreferrer">
               <span>Book a call</span>
-              <ArrowUpRight />
+              <span className="val">
+                bookwithhunter.com <ArrowUpRight />
+              </span>
             </a>
             <a href={`mailto:${site.email}`}>
               <span>Email</span>
-              <ArrowUpRight />
+              <span className="val">{site.email}</span>
             </a>
             <a href={site.linkedin} target="_blank" rel="noopener noreferrer">
               <span>LinkedIn</span>
-              <ArrowUpRight />
+              <span className="val">
+                Connect <ArrowUpRight />
+              </span>
             </a>
-          </div>
-        </Reveal>
-      </div>
+          </Reveal>
+        </Section>
+      </main>
 
       <footer className="footer">
-        <span>Hunter Zhang</span>
-        <span>Agentic Automation</span>
-        <span>© {site.year}</span>
+        <div className="shell footer-inner">
+          <span>Hunter Zhang</span>
+          <span>Agentic Automation</span>
+          <span>© {site.year}</span>
+        </div>
       </footer>
     </>
   );
