@@ -48,9 +48,7 @@ export default function FlowCompare() {
         <span className="vs-cap">You do all seven steps, every time.</span>
       </div>
 
-      <div className="vs-sep">
-        <span>automate ↓</span>
-      </div>
+      <div className="vs-sep" />
 
       {/* AFTER */}
       <div className="vs-block after">

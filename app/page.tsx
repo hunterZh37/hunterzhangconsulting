@@ -1,3 +1,4 @@
+import Image from "next/image";
 import FlowCompare from "@/components/FlowCompare";
 import AgentTerminal from "@/components/AgentTerminal";
 import Reveal from "@/components/Reveal";
@@ -65,13 +66,26 @@ export default function Home() {
         </div>
 
         <div className="hero-right">
-          <FlowCompare />
-          <span className="hero-badge">Hunter Zhang</span>
+          <Image
+            src="/hunter.jpg"
+            alt="Hunter Zhang at Stanford"
+            fill
+            priority
+            sizes="(max-width: 900px) 100vw, 50vw"
+            className="hero-photo"
+          />
+          <span className="hero-badge">Hunter Zhang · Stanford</span>
         </div>
       </section>
 
       {/* ---------- Bento grid ---------- */}
       <div className="bento">
+        {/* Manual vs automated */}
+        <Reveal className="card span-6 compare-card" as="div">
+          <span className="eyebrow">Manual today vs an agent</span>
+          <FlowCompare />
+        </Reveal>
+
         {/* What I do */}
         <Reveal className="card span-3" as="div">
           <span className="eyebrow">What I do</span>
