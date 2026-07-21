@@ -7,7 +7,7 @@ export const site = {
   name: "Hunter Zhang",
   role: "Agentic Automation",
   bookingUrl: "https://bookwithhunter.com/book",
-  email: "hunterzhang121@outlook.com",
+  email: "hunter@hunterzhangconsulting.com",
   // PLACEHOLDER — replace with your real LinkedIn URL when ready.
   linkedin: "https://www.linkedin.com/in/hunter-zhang/",
   // Featured project. NOTE: repo is being made public — link 404s until then.
